@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
+import { Segment } from 'semantic-ui-react';
+import FlashMessagesList from './Flash/FlashMessagesList';
 
-export default class Home extends Component {
+import './../css/Home.css';
+
+class Home extends Component {
     render() {
         return (
-            <div className="jumbotron jumbotron-fluid">
-                <div className="container">
-                    <h1 className="display-4">Home</h1>
-                </div>
+            <div className="home-container">
+                <Segment basic>
+                    <FlashMessagesList />
+                </Segment>
             </div>
         )
     }
 }
+
+export default Home;

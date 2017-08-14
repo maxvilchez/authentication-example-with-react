@@ -29,11 +29,15 @@ class RegisterForm extends Component {
         return isValid;
     }
     onSubmit() {
-        
         if(this.isValid()){
             this.setState({ errors: {}, isLoding:true })
             this.props.userSignupRequest(this.state).then(
                 () => {
+                    this.props.addFlashMessage({
+                        type: 'success',
+                        title: 'Bienvenido!',
+                        message: 'Tu registro ha sido satisfactorio.'
+                    })
                     this.props.history.push('/');
                 },
             ).catch(
@@ -92,6 +96,7 @@ class RegisterForm extends Component {
 
 RegisterForm.proptypes = {
     userSignupRequest: PropTypes.func.isRequired,
+    addFlashMessage: PropTypes.func.isRequired,
 }
 
 export default withRouter(RegisterForm);

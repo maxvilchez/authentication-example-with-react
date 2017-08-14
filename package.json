@@ -12,8 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.2",
+    "bookshelf": "^0.10.4",
     "express": "^4.15.4",
+    "knex": "^0.13.0",
+    "mysql": "^2.14.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -24,6 +28,7 @@
     "redux-thunk": "^2.2.0",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.71.4",
+    "shortid": "^2.2.8",
     "validator": "^8.0.0"
   },
   "devDependencies": {
