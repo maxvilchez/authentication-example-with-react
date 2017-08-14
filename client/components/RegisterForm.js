@@ -56,7 +56,7 @@ class RegisterForm extends Component {
                         value={this.state.username}
                         onChange={ this.onChange }
                     />
-                    {errors.username && <Message error header='Error Message:' content={errors.username} />}
+                    {errors.username && <Message error header='Mensaje de Error:' content={errors.username} />}
                 </Form.Field>
                 <Form.Field>
                     <Form.Input
@@ -66,7 +66,7 @@ class RegisterForm extends Component {
                         value={ this.state.password } 
                         onChange={ this.onChange }
                     />
-                    {errors.password && <Message error header='Error Message:' content={errors.password} />}
+                    {errors.password && <Message error header='Mensaje de Error:' content={errors.password} />}
                 </Form.Field>
                 <Form.Field>
                     <Form.Input 
@@ -76,7 +76,7 @@ class RegisterForm extends Component {
                         value={ this.state.passwordConfirmation } 
                         onChange={ this.onChange }
                     />
-                    {errors.passwordConfirmation && <Message error header='Error Message:' content={errors.passwordConfirmation} />}
+                    {errors.passwordConfirmation && <Message error header='Mensaje de Error:' content={errors.passwordConfirmation} />}
                 </Form.Field>
                 <Form.Field>
                     <Form.Input 
@@ -86,7 +86,7 @@ class RegisterForm extends Component {
                         value={ this.state.email } 
                         onChange={ this.onChange }
                     />
-                    {errors.email && <Message error header='Error Message:' content={errors.email} />}
+                    {errors.email && <Message error header='Mensaje de Error:' content={errors.email} />}
                 </Form.Field>
                 <Button type='submit' secondary>Sign up</Button>
             </Form>
