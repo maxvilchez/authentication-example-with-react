@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Message, Button } from 'semantic-ui-react';
 import validateInput from './../../server/shared/validations/signup';
+import { withRouter } from 'react-router-dom';
 
 class RegisterForm extends Component {
     constructor() {
@@ -28,10 +29,13 @@ class RegisterForm extends Component {
         return isValid;
     }
     onSubmit() {
+        
         if(this.isValid()){
             this.setState({ errors: {}, isLoding:true })
             this.props.userSignupRequest(this.state).then(
-                () => {} ,
+                () => {
+                    this.props.history.push('/');
+                },
             ).catch(
                 ({ response }) => this.setState({ errors: response.data, isLoding:false })
             );
@@ -90,4 +94,4 @@ RegisterForm.proptypes = {
     userSignupRequest: PropTypes.func.isRequired,
 }
 
-export default RegisterForm;
+export default withRouter(RegisterForm);
