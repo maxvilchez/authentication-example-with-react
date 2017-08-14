@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Message, Button } from 'semantic-ui-react';
+import validateInput from './../../server/shared/validations/signup';
 
 class RegisterForm extends Component {
     constructor() {
@@ -19,14 +20,22 @@ class RegisterForm extends Component {
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value })
     }
-    onSubmit(e) {
-        e.preventDefault();
-        this.setState({ errors: {}, isLoding:true })
-        this.props.userSignupRequest(this.state).then(
-            () => {} ,
-        ).catch(
-            ({ response }) => this.setState({ errors: response.data, isLoding:false })
-        );
+    isValid() {
+        const { errors, isValid } = validateInput(this.state);
+        if(!isValid){
+            this.setState({ errors })
+        }
+        return isValid;
+    }
+    onSubmit() {
+        if(this.isValid()){
+            this.setState({ errors: {}, isLoding:true })
+            this.props.userSignupRequest(this.state).then(
+                () => {} ,
+            ).catch(
+                ({ response }) => this.setState({ errors: response.data, isLoding:false })
+            );
+        }
     }
     render() {
         const { errors } = this.state;
