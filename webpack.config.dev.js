@@ -43,5 +43,9 @@ export default {
                 }
             },
         ]
+    },
+    node: {
+        dns: 'mock',
+        net: 'mock'
     }
 }

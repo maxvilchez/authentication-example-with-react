@@ -28,6 +28,16 @@ function validateUnique(data, otherValidations) {
     })
 }
 
+router.get('/:identifier', (req, res) => {
+    User.query({
+        select: ['username', 'email'],
+        where: { email: req.params.identifier },
+        orWhere: { username: req.params.identifier }
+    }).fetch().then(user => {
+        res.json({ user });
+    })
+});
+
 router.post('/', (req, res) => {
     validateUnique(req.body, validateInput).then(({ errors, isValid }) => {
         if(isValid) {
