@@ -1,1 +1,1 @@
-# react-auth
+authentication example with react.
